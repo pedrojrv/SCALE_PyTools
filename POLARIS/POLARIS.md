@@ -1,22 +1,58 @@
-# Polaris
+TODO: FINISH SLIDES AND TUTORIAL
 
 
+# POLARIS: Fast 2-D Lattice Physics
+
+Polaris requires a simple input consisting on: assembly geometry, materials definitions, and a range of system conditions. It outputs assembly-averaged few-group cross sections which can be used as input for PARCS/TRACE core analysis. It provides accurate prediction of lattice $k_{eff}$, pin power distribution, and few-group cross sections. It employs Method-of-Characteristics (MoC) solver, CMFD acceleration, and ATLAS geometry for ray tracing. 
+
+### POLARIS WorkFlow
+
+>- Input File
+>- Resonance Calculation (Embedded Self-Shielding Method - ESSM)
+>- 2D Assembly Calculation (MoC)
+>- Critical Spectrum Calculation
+>- Cross Section Homogenization
+>- Depletion
+>- Output Files: FG XS Archive, Concentration Archive, ORIGEN XS Archive, and Output File. 
 Polaris does not require celldata input. XS processing already embedded into 2D geometry.
 
+### Polaris Input
 
-POLARIS (assembly-averaged few-group cross sections useas as input for PARCS/TRACE core analysis)
-Basics 
-Input: title, lib, %, geom,
-- comp (defines set of isotopes and relative distribution) is defined in several ways. Examples: 
-comp CNAME : NUM ... (atom %)
+The input basics include: title, lib, %, geom, comp, mat, and pin.
+
+```
+=polaris
+title "W17x17 pin cell"
+      "Polaris Training"
+lib "v7-252"
+```
+
+- Geometry Section: GEOM is the assembly name, ASSM indicates assembly geometry, npins indicates # of pins on side of the assembly, ppitch is the pin pitch (cm).
+
+```
+% geometry GNAME : ASSM npins=INT ppitch=REAL [sym=FULL|SE]
+geometry W17 : ASSM npins=1 ppitch=1.26 sym=FULL
+```
+
+- Composition (what is it?) and Material (what does it do?) Section: comp (defines set of isotopes and relative distribution) is defined in several ways where CNAME indicates composition name, UOX indicates uranium oxide and enr the enrichment of U-235. The material section defines a composition at a given density and temperature where MNAME is the material name, CNAME is the composition name, dens indicates the density (g/cm3), and temp the temperature (K). There are a variety of predefined composition names, CNAME, including H2O, B4C, ER2O3, GD2O3, FILLGAS, AIC, PYREX, ZIRC2, ZIRC4, SS304, SS316, INC718, WATER.
+
+```
+% comp CNAME : NUM ... (atom %)
+composition c_f31 : UOX 3.1
+material FUEL.1 c_f31 dens=10.26 temp=600
+
+% equivalent to:
+comp F31 : UOX 3.1
+mat FUEL.1 : F31 10.26 600
+
+% Several type of definitions exist:
 comp CNAME : WT GD2O3=7 F30=-100     (weight %)
-comp CNAME : FORM 1002=2 O16=1 (chemical compound)
-comp CNAME : CONC 
-        5010=2.98553E-03 (number densities)
-comp CNAME : LW borppm=1300    (borated water)
-predefined CNAME: H2O, B4C, ER2O3, GD2O3, FILLGAS, AIC, PYREX, ZIRC2, ZIRC4, SS304, SS316, INC718, WATER.
+comp CNAME : FORM 1002=2 O16=1       (chemical compound)
+comp CNAME : CONC 5010=2.98553E-03   (number densities)
+comp CNAME : LW borppm=1300          (borated water)
+```
 
-- mat (composition at a given den and temp),
+
 - pin PINID [size=INT] [nsect=INT]
          r1  r2  ...  ri ...  rN
         M1 M2 .. Mi .. MN [Mout]
