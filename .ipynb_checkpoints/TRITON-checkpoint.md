@@ -3,10 +3,10 @@
 ### General Files
 
 >***\<inputname\>.f33*** - XS libraries for follow-on ORIGEN calculations. It contains XSs as a function of burnup, enrichment, Pu content (MOX), and moderator density, boron concentration, etc. Mostly used for:
-- Assembly-averaged Spent Fuel Isotopics
-- Decay Heat Analysis
-- Source Term
-- Detector Response for Safeguards Instrumentation
+>- Assembly-averaged Spent Fuel Isotopics
+>- Decay Heat Analysis
+>- Source Term
+>- Detector Response for Safeguards Instrumentation
 
 >***\<inputname\>.out*** – Contains most important information.
 
