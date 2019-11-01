@@ -25,10 +25,10 @@
 ### Calculation Performed in MG and CE
 There are 3 Fundamental Calculations in MultiGroup Calculations:
 >- Cross Section Processing (based on unit cell) uses: 
-    - Material Concentration and Temperature
-    - Geometry 
-    - Outputs: MG Problem Dependent Cross Sections). 
-    - Processing Options: BONAMI, CENTRM/PMC (PW slowing down), DoubleHet (for TRISO particles)
+>    - Material Concentration and Temperature
+>    - Geometry 
+>    - Outputs: MG Problem Dependent Cross Sections). 
+>    - Processing Options: BONAMI, CENTRM/PMC (PW slowing down), DoubleHet (for TRISO particles)
     
 >- Multigroup Transport Calculation uses: 
     - MG Cross Sections
