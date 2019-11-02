@@ -31,31 +31,39 @@ There are 3 Fundamental Calculations in MultiGroup Calculations:
 >    - Processing Options: BONAMI, CENTRM/PMC (PW slowing down), DoubleHet (for TRISO particles)
     
 >- Multigroup Transport Calculation uses: 
-    - MG Cross Sections
-    - Material Concentrations
-    - Geometry. 
-    - Outputs: k-eff and flux dependant QOIs (MORE OUTPUTS UPDATE).
+>    - MG Cross Sections
+>    - Material Concentrations
+>    - Geometry. 
+>    - Outputs: k-eff and flux dependant QOIs (MORE OUTPUTS UPDATE).
     
 >- ORIGEN Depletion uses: 
-    - Material Concentrations
-    - Transition Matrices
-    - Power Levels and Time Step
-    - Outputs: New Material Concentration
+>    - Material Concentrations
+>    - Transition Matrices
+>    - Power Levels and Time Step
+>    - Outputs: New Material Concentration
 
 There is only 1 Fundamental Calculation in CE:
 >- CE Monte Carlo uses: 
-    - CE Cross Section Library
-    - Material Concentration and Temperature
-    - Geometry
-    - Output: k-eff and flux dependant QOIs
+>    - CE Cross Section Library
+>    - Material Concentration and Temperature
+>    - Geometry
+>    - Output: k-eff and flux dependant QOIs
 
 
 ### Basic Standard Composition Input Data
 
+To define standard compositions we simply need the following structure:
+
+**[StdCmpName | Material_# | Theoretical_Density | Density_Multiplier | Temperature | Isotopic Distribution]**
+
+Example 1: Boron Carbide with 30% B-10 and 70% B-11.
 ```
-[StdCmpName | Material_# | Theoretical_Density | Density_Multiplier | Temperature | Isotopic Distribution]
-Boron Carbide Example: b4c 1 DEN=2.46 1.0 293 5010 30 5011 70
-Pure Uranium Example: uranium 1 den=3.0 1.0 293 92235 96.0 92238 4 end
+b4c 1 DEN=2.46 1.0 293 5010 30 5011 70
+```
+
+Example 2: Pure Uranium 96% U-235 and 4% U-238.
+```
+uranium 1 den=3.0 1.0 293 92235 96.0 92238 4 end
 ```
 
 ### Cell Data Cross Section Processing Options (Slide 04):
@@ -71,8 +79,8 @@ Homogeneous medium used for large homogeneous media (solutions). All mixtures no
 
 **LatticeCell** used for spheres, infinite cylinder or slab, annular sphere, etc. Annular cells created by adding letter A at the beggining. Cell types include: 
 >- SQUAREPITCH/SPHSQUAREP
-- TRIANGPITCH/SPHTRIANGP
-- SYMMSLABCEL 
+>- TRIANGPITCH/SPHTRIANGP
+>- SYMMSLABCEL 
 
 ```
 read celldata
@@ -81,11 +89,11 @@ end celldata
 ```
 
 **MultiregionCell**: for more complicated geometric configurations than latticecell or large geometric regions with minimal geometry effects. Cell types include: 
-- SLAB
-- CYLINDRICAL
-- SPHERICAL
-- BUCKLEDSLAB
-- BUCKLEDCYL
+>- SLAB
+>- CYLINDRICAL
+>- SPHERICAL
+>- BUCKLEDSLAB
+>- BUCKLEDCYL
 
 ```
 read celldata
@@ -106,10 +114,8 @@ Dancoff Factor, C, accounts for interaction between multiple lumps (prob. neutro
 
 ## NEWT (2D Deterministic Transport Code)
 
-Newt is a Discrete Ordinates Solution method with three solution modes: *EigenValue, Eigenvalue with B1 Critical Spectrum, and Fixed Source*. Four boundary conditions are supported: *Reflective, White, Vacuum, and Periodic*. In TRITON, using the NEWT option creates several outputs including a flux file for depletion and the flux weighted cross sections (by nuclide in each mixture, homogenized for multiple mixture).
-
-Several Data Blocks Needed (some other optional): 
-- Parameters Block. Problem control data.
+Newt is a Discrete Ordinates Solution method with three solution modes: *EigenValue, Eigenvalue with B1 Critical Spectrum, and Fixed Source*. Four boundary conditions are supported: *Reflective, White, Vacuum, and Periodic*. In TRITON, using the NEWT option creates several outputs including a flux file for depletion and the flux weighted cross sections (by nuclide in each mixture, homogenized for multiple mixture). Several data blocks are needed (some other optional): 
+- **Parameters Block:** problem control data.
 
 ```
 read parameter
@@ -141,7 +147,7 @@ read parameter
 end parameter
 ```
 
-- Material Block. Material data and scattering specifications.
+- **Material Block:** material data and scattering specifications.
 
 ```
 read materials
@@ -150,13 +156,47 @@ read materials
     …
 end materials
 ```
-- geometry
+- **Geometry Block:** defines problem geometry which is defined in term of units. NEWT approximates all surfaces as polygons including cylinders. The global unit is limited to `cuboid`, `wedge`, or `hexagons`. Within each unit one may place shapes, arrays, and holes. Additionally, each unit contains media specification and boundary definition. Avaliable shapes are:
+>- *cuboid bodyID +X -X +Y -Y Positions*
+>- *cylinder bodyID radius [sides=12]*
+>- *hexprism bodyID inner_radius*
+>- *rhexprism bodyID inner_radius*
+>- *wedge bodyID Xbase Xpt Ypt*
+>- *polygon bodyID X0 Y0 X1 Y1 ... XN YN
 
-- bounds
+In general, a geometry block follows a particular structure. The region parameter in the media statement indicates what side of shape a material will fill in. If positive the media is inside and vice versa.
+
+```
+read geometry
+global unit #
+    shape options
+    media materialID 1 region
+    boundary conditions
+end geometry
+```
+
+Example of simple fuel rod:
+
+```
+read geometry
+global unit 1
+    cylinder 10 0.5 sides=50 com='fuel'
+    cylinder 20 0.505 sides=50 com='gas gap'
+    cylinder 30 0.600 sides=16 com='clad'
+    cuboid 40 1.0 -1.0 1.0 -1.0 com='moderator‘
+    media 1 1 10
+    media 4 1 20 -10
+    media 2 1 30 -20 
+    media 3 1 40 -30
+    boundary 40 2 2
+end geometry
+```
+
+- Boundary Block: defines problem boundary conditions.
 
 - collapse
 
-- array
+- Array: defines problem arrays (if any).
 
 - source
 
