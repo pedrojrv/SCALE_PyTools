@@ -17,13 +17,7 @@ Why 1D? Scoping Studies, Spherical and Cylindrical geometries not avaliable in N
 The input is identical to t-newt with the exception of the different sequence name, different parameter options and different geometry options. 
 
 - Parameter Block
-collapse=(yes/no)
-epsglobal=(RN) - Overall problem convergence criteria. [1.0e-6]
-epsouter=(RN) - Scalar flux convergence criteria. [1.0e-6]
-inners=(IN) - Maximum # of inner iterations in an energy group. [20]
-outers=(IN) - Maximum # of outer iterations. [100]
-prtbalnc=(yes/no) - Flag indicating whether or not fine-group material balance tables should be printed in problem output. [no]
-sn=(2/4/6/8/16/32) - Sn quadrature order for the transport calculations.
+
 
 | Keyword | Default | Description |
 | ------- | ------- | ----------- |
@@ -46,6 +40,7 @@ sn=(2/4/6/8/16/32) - Sn quadrature order for the transport calculations.
 | zonedimensions | d1 d2 ... dN end zonedimensions | In centimeters |
 | zoneintervals | int1 int2 ... intN | # of spatial mesh of constant width per problem zone |
 
+The depletion, burndata, opus, and timetable block are identical to NEWT.
 
 
 
