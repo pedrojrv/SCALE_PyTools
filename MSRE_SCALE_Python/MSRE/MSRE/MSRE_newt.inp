@@ -1,0 +1,88 @@
+=t-newt parm=(centrm)
+MSDR Quarter Pin assembly
+v7-252
+
+read comp
+' LEU 35% U-235
+li-6	1	2.13587E-05	922.0389 end
+li-7	1	0.249160335	922.0389 end
+f-19    1	1.527532988	922.0389 end
+be	    1	0.143432127	922.0389 end
+zr	    1	0.10953198	922.0389 end
+u-238	1	0.076250688	922.0389 end
+u-235	1	0.040540524	922.0389 end
+
+
+' LEU 35% BEN
+'u-238    1    0.069437189        922.039        end
+'zr-90    1    0.227477489        922.039        end
+'u-235    1    0.036917963        922.039        end
+'li-7    1    0.226918919        922.039        end
+'be-9    1    0.130615527        922.039        end
+'f-19    1    1.391037912        922.039        end
+
+' HEU 93% U-235
+'li-6	1 2.30176E-05 922.0389 end
+'li-7	1 0.268511689 922.0389 end
+'f-19	1 1.545072915 922.0389 end
+'be	    1 0.149889991 922.0389 end
+'zr	    1 0.091886584 922.0389 end
+'u-238	1 0.001913538 922.0389 end
+'u-235	1 0.025102266 922.0389 end
+
+
+' moderator
+graphite  3 DEN=1.86 1.0 922.0389 end
+
+end comp
+
+read celldata
+  latticecell SQUAREPITCH pitch=5.08 3 fueld=0.956671 1 end
+end celldata
+
+read model
+read parameter
+ drawit=yes
+ echo=yes
+' nazim=3
+' npolar=3
+ prtflux=yes
+ prtmxtab=yes
+ prtbalnc=yes
+end parm
+
+read materials
+  mix=1  pn=1 com="Fuel Salt" end
+  mix=3  pn=1 com="Graphite"  end
+end materials
+
+read geom
+'Cylinder for Edges
+unit 10
+cylinder 20 0.508
+media 1 1 20
+boundary 20
+
+' Quarter Cell
+global unit 1
+cuboid   1 1.016 0 2.54 2.032
+cuboid   2 2.540 2.032 1.016 0
+cuboid  90 2.54 0. 2.54 0.
+hole 10 origin x=1.016 y=2.54
+hole 10 origin x=2.54  y=1.016
+media 1 1  1
+media 1 1  2
+media 3 1 -1 -2 90
+boundary 90 30 30
+end geom
+
+read bounds
+  all=refl
+end bounds
+
+end model
+end
+
+=shell
+  cp ${TMPDIR}/StdCmpMix00001 ${OUTDIR}/${BASENAME}.stdcmp_m1
+end

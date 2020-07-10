@@ -1,0 +1,180 @@
+cd /home/ybb/SCALE_beta/Solid/MSBR/MSBR_beta_3/
+qsub MSBR_3.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSBR/MSBR_beta_5/
+qsub MSBR_5.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSBR/MSBR_beta_7/
+qsub MSBR_7.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSBR/MSBR_beta_9/
+qsub MSBR_9.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSBR/MSBR_beta_11/
+qsub MSBR_11.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSBR/MSBR_beta_13/
+qsub MSBR_13.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSBR/MSBR_beta_15/
+qsub MSBR_15.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSBR/MSBR_beta_17/
+qsub MSBR_17.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSBR/MSBR_beta_33/
+qsub MSBR_33.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSBR/MSBR_beta_65/
+qsub MSBR_65.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSRE/MSRE_beta_3/
+qsub MSRE_3.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSRE/MSRE_beta_5/
+qsub MSRE_5.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSRE/MSRE_beta_7/
+qsub MSRE_7.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSRE/MSRE_beta_9/
+qsub MSRE_9.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSRE/MSRE_beta_11/
+qsub MSRE_11.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSRE/MSRE_beta_13/
+qsub MSRE_13.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSRE/MSRE_beta_15/
+qsub MSRE_15.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSRE/MSRE_beta_17/
+qsub MSRE_17.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSRE/MSRE_beta_33/
+qsub MSRE_33.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSRE/MSRE_beta_65/
+qsub MSRE_65.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSDR/MSDR_beta_3/
+qsub MSDR_3.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSDR/MSDR_beta_5/
+qsub MSDR_5.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSDR/MSDR_beta_7/
+qsub MSDR_7.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSDR/MSDR_beta_9/
+qsub MSDR_9.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSDR/MSDR_beta_11/
+qsub MSDR_11.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSDR/MSDR_beta_13/
+qsub MSDR_13.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSDR/MSDR_beta_15/
+qsub MSDR_15.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSDR/MSDR_beta_17/
+qsub MSDR_17.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSDR/MSDR_beta_33/
+qsub MSDR_33.pbs
+
+cd /home/ybb/SCALE_beta/Solid/MSDR/MSDR_beta_65/
+qsub MSDR_65.pbs
+
+cd /home/ybb/SCALE_beta/MSBR/MSBR_beta_100/
+qsub MSBR_100.pbs
+
+cd /home/ybb/SCALE_beta/MSBR/MSBR_beta_80/
+qsub MSBR_80.pbs
+
+cd /home/ybb/SCALE_beta/MSBR/MSBR_beta_60/
+qsub MSBR_60.pbs
+
+cd /home/ybb/SCALE_beta/MSBR/MSBR_beta_40/
+qsub MSBR_40.pbs
+
+cd /home/ybb/SCALE_beta/MSBR/MSBR_beta_20/
+qsub MSBR_20.pbs
+
+cd /home/ybb/SCALE_beta/MSBR/MSBR_beta_15/
+qsub MSBR_15.pbs
+
+cd /home/ybb/SCALE_beta/MSBR/MSBR_beta_12/
+qsub MSBR_12.pbs
+
+cd /home/ybb/SCALE_beta/MSBR/MSBR_beta_10/
+qsub MSBR_10.pbs
+
+cd /home/ybb/SCALE_beta/MSBR/MSBR_beta_5/
+qsub MSBR_5.pbs
+
+cd /home/ybb/SCALE_beta/MSBR/MSBR_beta_0/
+qsub MSBR_0.pbs
+
+cd /home/ybb/SCALE_beta/MSRE/MSRE_beta_100/
+qsub MSRE_100.pbs
+
+cd /home/ybb/SCALE_beta/MSRE/MSRE_beta_80/
+qsub MSRE_80.pbs
+
+cd /home/ybb/SCALE_beta/MSRE/MSRE_beta_60/
+qsub MSRE_60.pbs
+
+cd /home/ybb/SCALE_beta/MSRE/MSRE_beta_40/
+qsub MSRE_40.pbs
+
+cd /home/ybb/SCALE_beta/MSRE/MSRE_beta_20/
+qsub MSRE_20.pbs
+
+cd /home/ybb/SCALE_beta/MSRE/MSRE_beta_15/
+qsub MSRE_15.pbs
+
+cd /home/ybb/SCALE_beta/MSRE/MSRE_beta_12/
+qsub MSRE_12.pbs
+
+cd /home/ybb/SCALE_beta/MSRE/MSRE_beta_10/
+qsub MSRE_10.pbs
+
+cd /home/ybb/SCALE_beta/MSRE/MSRE_beta_5/
+qsub MSRE_5.pbs
+
+cd /home/ybb/SCALE_beta/MSRE/MSRE_beta_0/
+qsub MSRE_0.pbs
+
+cd /home/ybb/SCALE_beta/MSDR/MSDR_beta_100/
+qsub MSDR_100.pbs
+
+cd /home/ybb/SCALE_beta/MSDR/MSDR_beta_80/
+qsub MSDR_80.pbs
+
+cd /home/ybb/SCALE_beta/MSDR/MSDR_beta_60/
+qsub MSDR_60.pbs
+
+cd /home/ybb/SCALE_beta/MSDR/MSDR_beta_40/
+qsub MSDR_40.pbs
+
+cd /home/ybb/SCALE_beta/MSDR/MSDR_beta_20/
+qsub MSDR_20.pbs
+
+cd /home/ybb/SCALE_beta/MSDR/MSDR_beta_15/
+qsub MSDR_15.pbs
+
+cd /home/ybb/SCALE_beta/MSDR/MSDR_beta_12/
+qsub MSDR_12.pbs
+
+cd /home/ybb/SCALE_beta/MSDR/MSDR_beta_10/
+qsub MSDR_10.pbs
+
+cd /home/ybb/SCALE_beta/MSDR/MSDR_beta_5/
+qsub MSDR_5.pbs
+
+cd /home/ybb/SCALE_beta/MSDR/MSDR_beta_0/
+qsub MSDR_0.pbs
+
