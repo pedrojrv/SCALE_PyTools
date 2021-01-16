@@ -1,0 +1,11 @@
+- First_Simulation: Testing finer off-gas system efficiencies (100, 80, 60, 40, 20, 15, 10, 5, 0) WITH decay.
+	- Pre-efficiencies used BEFORE adding decay: MSBR: 0.009974174, MSDR: 0.003975773, MSRE: 0.00160106467
+- Second_Simulation: Testing finer off-gas system efficiencies (100, 80, 60, 40, 20, 15, 12, 10, 5, 0) WITH decay
+	- We additionally test HEU for the MSRE cases
+	- MSBR with Ben's Thorium fuel input.
+	- We also use the 100% efficiency MSBR case to do a parametric study on burnup
+	- Parametric study in day at which results are taken 1, 2, 3, 4
+
+
+
+

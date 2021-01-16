@@ -1,0 +1,6 @@
+- First_Simulation: Testing that SCALE Alpha works by submitting sample problems for each reactor case.
+- Second_Simulation: Testing different Off-gas system efficiencies (100, 50 , 15, 10 , 5, 0) with no decay.
+- Third_Simulation: Testing finer off-gas system efficiencies (100, 80, 60, 40, 20, 15, 10, 5, 0) with NO decay.
+	- Pre-efficiencies used: MSBR: 0.009974174, MSDR: 0.003975773, MSRE: 0.001580148
+
+

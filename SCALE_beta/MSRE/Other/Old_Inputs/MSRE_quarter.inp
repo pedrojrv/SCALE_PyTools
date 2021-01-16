@@ -1,0 +1,56 @@
+=t-newt parm=(centrm)
+MSDR assembly
+v7-56
+
+read comp
+' materials at 625 degrees C
+' fuel salt LiF with 5% LEU
+  li-6  1  DEN=2.14647 3.21972E-05  922.0389 end
+  li-7  1  DEN=2.14647 0.375596131  922.0389 end
+  u-235 1  DEN=2.14647 0.002897118  922.0389 end
+  u-238 1  DEN=2.14647 0.011736410  922.0389 end
+  f-19  1  DEN=2.14647 1.645308590  922.0389 end
+  be    1  DEN=2.14647 0.097163542  922.0389 end
+  zr    1  DEN=2.14647 0.009051380  922.0389 end
+
+' moderator
+  graphite  3 DEN=1.77666 1.0 898.15 end
+
+end comp
+
+read model
+read parameter
+ drawit=yes
+ echo=yes
+ nazim=3
+ npolar=3
+ prtflux=yes
+ prtmxtab=yes
+end parm
+
+read materials
+  mix=1  pn=1 com="fuel salt" end
+  mix=3  pn=2 com="graphite"  end
+end materials
+
+read geom
+unit 10
+
+
+  global unit 1
+    polygon  1 0 2.032 1.4 2.032 1.431 2.159 1.462 2.286 1.493 2.413 1.524 2.54 0 2.54 0 2.032
+    polygon  2 2.032 0 2.032 1.4 2.159 1.431 2.286 1.462 2.413 1.493 2.54 1.524 2.54 0 2.032 0 
+    hole 10 
+    cuboid  90 2.54 0. 2.54 0.
+    media 1 1  1
+    media 1 1  2
+    media 3 1 -1 -2 90
+  boundary 90 30 30
+end geom
+
+read bounds
+  all=refl
+end bounds
+
+end model
+end

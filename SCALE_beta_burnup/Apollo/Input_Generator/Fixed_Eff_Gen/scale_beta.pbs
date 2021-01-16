@@ -1,0 +1,90 @@
+cd /home/ybb/SCALE_beta/Burnup/MSBR/MSBR_beta_1/
+qsub MSBR_4.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSBR/MSBR_beta_2/
+qsub MSBR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSBR/MSBR_beta_3/
+qsub MSBR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSBR/MSBR_beta_4/
+qsub MSBR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSBR/MSBR_beta_5/
+qsub MSBR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSBR/MSBR_beta_6/
+qsub MSBR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSBR/MSBR_beta_7/
+qsub MSBR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSBR/MSBR_beta_8/
+qsub MSBR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSBR/MSBR_beta_9/
+qsub MSBR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSBR/MSBR_beta_10/
+qsub MSBR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSRE/MSRE_beta_1/
+qsub MSRE_4.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSRE/MSRE_beta_2/
+qsub MSRE_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSRE/MSRE_beta_3/
+qsub MSRE_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSRE/MSRE_beta_4/
+qsub MSRE_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSRE/MSRE_beta_5/
+qsub MSRE_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSRE/MSRE_beta_6/
+qsub MSRE_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSRE/MSRE_beta_7/
+qsub MSRE_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSRE/MSRE_beta_8/
+qsub MSRE_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSRE/MSRE_beta_9/
+qsub MSRE_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSRE/MSRE_beta_10/
+qsub MSRE_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSDR/MSDR_beta_1/
+qsub MSDR_4.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSDR/MSDR_beta_2/
+qsub MSDR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSDR/MSDR_beta_3/
+qsub MSDR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSDR/MSDR_beta_4/
+qsub MSDR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSDR/MSDR_beta_5/
+qsub MSDR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSDR/MSDR_beta_6/
+qsub MSDR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSDR/MSDR_beta_7/
+qsub MSDR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSDR/MSDR_beta_8/
+qsub MSDR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSDR/MSDR_beta_9/
+qsub MSDR_100.pbs
+
+cd /home/ybb/SCALE_beta/Burnup/MSDR/MSDR_beta_10/
+qsub MSDR_100.pbs
+

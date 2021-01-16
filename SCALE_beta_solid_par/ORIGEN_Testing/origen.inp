@@ -1,0 +1,57 @@
+=shell
+  cp C:\Users\vicen\Desktop\SCALE_beta_solid_par\ORIGEN_Testing\MSDR_burnup.f33cmb msr.f33cmb
+end
+
+=origen
+case{
+    title="Single fluid MSR depletion calculation"
+
+    lib{
+        file="msr.f33cmb"
+        pos=1
+    }
+
+    time{
+        units=DAYS
+        t=[ 50I 1 730 ]
+    }
+
+    power=[ 52r6.196823919 ] %6.1968 MW/MTHM
+
+    %initial material
+    mat{
+        %starter for MSDR salt
+        units=GRAMS
+        iso =[li6=3.887 li7=7.775e4 u235=5.000e4 u238=9.500e5 f19=5.300e5]
+        %continuous feed of leu
+        feed=[u235=4.112e-6 u238=7.812e-5] %g/s
+    }
+
+
+    %continuous removal by element using atomic numbers Se Nb Mo Tc Ru Rh Pd Ag Sb Te
+'    processing{ removal{rate=0.00022633577000000002 ele=[1 7 8 18 36 54]}
+'                removal{rate=1.8722e-05 ele=[34 41 42 43 44 45 46 47 51 52]}
+'    }
+
+'    processing{ removal{rate=0.00022633577000000002 ele=[1 7 8 18 36 54]}
+'                removal{rate=1.8722e-05 ele=[42099, 43099]}
+'    }
+
+    processing{ removal{rate=0.00022633577000000002 ele=[1 7 8 18 36 54]}
+    }
+
+
+    print{
+        cutoffs=[ GRAMS=0.1 ] %do not show grams < 0.1% of total
+        nuc{ units=[GRAMS] total=yes }
+        kinf=yes %print k-infinity summary
+        absfrac_sublib=LT %absorption fractions for light nuclides in FLiBe
+    }
+
+    save=yes
+
+} 
+
+%end case
+end
+

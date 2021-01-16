@@ -1,0 +1,122 @@
+=t-depl parm=(addnux=4)
+MSDR 2000 Full Circular Pin
+v7-252
+
+read comp
+'Th-U-233 Cycle DEN=3.283
+f-19    1    1.489985        973.15        end
+u-233   1    0.02396926      973.15        end
+th-232  1    1.431974        973.15        end
+li-7    1    0.258704        973.15        end
+be-9    1    0.074156        973.15        end
+
+'Th-U-233 Cycle DEN=3.2788
+'li-6	1	2.20228E-05	973.15 end
+'li-7	1	0.256907524	973.15 end
+'f-19	1	1.487182086	973.15 end
+'be	    1	0.073716643	973.15 end
+'th-232	1	1.425188437	973.15 end
+'u-233	1	0.035783287	973.15 end
+
+' moderator
+graphite  3 DEN=1.86 1.0 973.15 end
+
+' waste mixture(s)
+  xe-135    7 0 1.0e-20 973.15 end
+' waste mixture(s)
+  xe-135    8 0 1.0e-20 973.15 end
+end comp
+
+read celldata
+  latticecell SQUAREPITCH pitch=9.906 3 fuelr=1.7018 1 end
+end celldata
+
+read depletion
+    1 decayonly 7 8 
+end depletion
+
+' 2250 MWt for 58.58689935 MT HM
+read burndata
+    power=38.40449017 burn=100  nlib=1 down=0 end
+    power=38.40449017 burn=730 nlib=1 end
+end burndata
+
+READ opus
+matl=1 7 8 end
+title = 'Masses in fuel salt'
+units=gram 
+nrank=2000 
+libtyp=all
+time=days 
+typarms=nucl 
+sort=no
+END opus
+
+read timetable
+' gaseous fission product removal
+   flow
+      from 1
+      to 7
+      type continuous
+      units pers
+      nuclides Kr Xe Ar H N O end
+'      constant 0.0099951 0.0099951 0.0099951 0.0099951 0.0099951 0.0099951 end
+      constant 0.004010586270000001 0.004010586270000001 0.004010586270000001 0.004010586270000001 0.004010586270000001 0.004010586270000001 end
+      time 0.0 end
+      factor 1.0 end
+   end flow
+' solid fission product removal (no decay)
+   flow
+      from 1
+      to 8
+      type continuous
+      units pers
+      nuclides Se Nb Mo Tc Ru Rh Pd Ag Sb Te end
+      constant 9.87443E-05 9.87443E-05 9.87443E-05 9.87443E-05 9.87443E-05 9.87443E-05 9.87443E-05 9.87443E-05 9.87443E-05 9.87443E-05 end
+      time 0.0 end
+      factor 1.0 end
+   end flow
+end timetable
+
+read model
+read parameter
+ drawit=yes
+ echo=yes
+' cmfd=yes
+ timed=yes
+' nazim=3
+' npolar=3
+ prtflux=yes
+ prtmxtab=yes
+ prtbalnc=yes
+end parm
+
+read materials
+  mix=1  pn=1 com="Fuel Salt" end
+  mix=3  pn=1 com="Graphite"  end
+end materials
+
+read geom
+unit 10
+cylinder 20 1.7018
+media 1 1 20
+boundary 20
+
+
+global unit 1
+cuboid  90 4.953 0 4.953 0
+hole 10 origin x=0 y=0
+media 3 1 90
+boundary 90 30 30
+end geom
+
+read bounds
+  all=refl
+end bounds
+
+end model
+end
+
+=shell
+  cp ${TMPDIR}/StdCmpMix00001 ${OUTDIR}/${BASENAME}.stdcmp_m1
+end

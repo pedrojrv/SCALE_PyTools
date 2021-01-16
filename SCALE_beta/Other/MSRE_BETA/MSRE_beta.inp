@@ -1,0 +1,145 @@
+=t-depl parm=(addnux=4)
+MSDR Quarter Pin
+v7-252
+
+read comp
+' Defining the composition of the mixtures
+' LEU 35% U-235
+li-6  1  DEN=2.14647 1.50001E-05  922.0389 end
+li-7  1  DEN=2.14647 0.174983173  922.0389 end
+u-235 1  DEN=2.14647 0.002365394  922.0389 end
+u-238 1  DEN=2.14647 0.004448954  922.0389 end
+f-19  1  DEN=2.14647 0.768703945  922.0389 end
+be    1  DEN=2.14647 0.045266667  922.0389 end
+zr    1  DEN=2.14647 0.004216867  922.0389 end
+
+
+' HEU 93% U-235
+'li-6  1  DEN=2.0824 1.50001E-05  922.0389 end
+'li-7  1  DEN=2.0824 0.174983173  922.0389 end
+'f-19  1  DEN=2.0824 0.768716166  922.0389 end
+'be    1  DEN=2.0824 0.045266667  922.0389 end
+'zr    1  DEN=2.0824 0.004216867  922.0389 end
+'u-235 1  DEN=2.0824 0.006320330  922.0389 end
+'u-238 1  DEN=2.0824 0.000481797  922.0389 end
+
+' moderator
+graphite  3 DEN=1.86 1.0 922.0389 end
+
+
+' Defining trace quantities of unmaterials of interest for removal
+' Density Multiplier of 0 is a flag meaning next number is number density (atoms/barn-cm) (WHAT ARE THESE?)
+' waste mixture(s)
+  xe-135    7 0 1.0e-20 898.15 end
+' waste mixture(s)
+  xe-135    8 0 1.0e-20 898.15 end
+
+end comp
+
+' HOW DO I DEFINE CELLDATA FOR THESE TYPE OF GEOMETRIES
+'read celldata
+'  latticecell symmslabcell pitch=5.08 3 fueld=0.36068 1 end
+'end celldata
+
+' Specifies mixtures to perform depletion calculations on
+' decayonly (BETA) mixtures to decay?
+read depletion
+    1 decayonly 7 8 
+end depletion
+
+' Burnup specifications
+' 7.5 MWt for 0.028277628 MT HM
+read burndata
+    power=256.7308951 burn=300  down=0  nlib=10 end
+    power=256.7308951 burn=5610 nlib=17 end
+    power=256.7308951 burn=5610 nlib=17 end
+    power=256.7308951 burn=5610 nlib=17 end
+    power=256.7308951 burn=5610 nlib=17 end
+end burndata
+
+' matl defines which mixtures we want results on
+' why partial density units? what does typarms=nucl means?
+READ opus
+matl=1 7 8 end
+title = 'Masses in fuel salt'
+units=gper 
+nrank=2000 
+libtyp=all
+time=days 
+typarms=nucl 
+sort=no
+END opus
+
+' Timetable are time dependant changes on material mixtures.
+' What are the units pers?
+' nuclides are the ones transported from 1 to 7?
+' 7 is a mixture, why are other isotopes not Xe, flowing to 7? like a container?
+' constant are the removal constants in [/s]
+' what is factor 1.0?
+' Should I make the calculations with feeds or only with removals or both and test?
+' This is only at timestep 0? After? Type continuous? Every transport calculation?
+read timetable
+' gaseous fission product removal
+   flow
+      from 1
+      to 7
+      type continuous
+      units pers
+      nuclides Kr Xe Ar H N O end
+      constant 3.3012E-01 3.3012E-01 3.3012E-01 3.3012E-01 3.3012E-01 3.3012E-01 end
+      time 0.0 end
+      factor 1.0 end
+   end flow
+' solid fission product removal
+   flow
+      from 1
+      to 8
+      type continuous
+      units pers
+      nuclides Se Nb Mo Tc Ru Rh Pd Ag Sb Te end
+      constant 3.3012E-01 3.3012E-01 3.3012E-01 3.3012E-01 3.3012E-01 3.3012E-01 3.3012E-01 3.3012E-01 3.3012E-01 3.3012E-01 end
+      time 0.0 end
+      factor 1.0 end
+   end flow
+end timetable
+
+
+read model
+252 group solution
+read parm
+  drawit=yes
+  prtmxtab=yes
+  echo=yes
+  prtflux=yes
+end parm
+
+read materials
+  mix=1  pn=1 com="fuel salt" end
+  mix=3  pn=2 com="graphite"  end
+end materials
+
+read geom
+unit 10
+cylinder 20 0.508
+media 1 1 20
+boundary 20
+
+
+global unit 1
+cuboid   1 1.016 0 2.54 2.032
+cuboid   2 2.540 2.032 1.016 0
+cuboid  90 2.54 0. 2.54 0.
+hole 10 origin x=1.016 y=2.54
+hole 10 origin x=2.54  y=1.016
+media 1 1  1
+media 1 1  2
+media 3 1 -1 -2 90
+boundary 90 30 30
+end geom
+
+read bounds
+  all=refl
+end bounds
+
+end model
+end

@@ -1,0 +1,27 @@
+cd /home/ybb/SCALE_beta/Parametric2/MSBR/MSBR_beta_17/
+qsub MSBR_17.pbs
+
+cd /home/ybb/SCALE_beta/Parametric2/MSBR/MSBR_beta_33/
+qsub MSBR_33.pbs
+
+cd /home/ybb/SCALE_beta/Parametric2/MSBR/MSBR_beta_65/
+qsub MSBR_65.pbs
+
+cd /home/ybb/SCALE_beta/Parametric2/MSRE/MSRE_beta_17/
+qsub MSRE_17.pbs
+
+cd /home/ybb/SCALE_beta/Parametric2/MSRE/MSRE_beta_33/
+qsub MSRE_33.pbs
+
+cd /home/ybb/SCALE_beta/Parametric2/MSRE/MSRE_beta_65/
+qsub MSRE_65.pbs
+
+cd /home/ybb/SCALE_beta/Parametric2/MSDR/MSDR_beta_17/
+qsub MSDR_17.pbs
+
+cd /home/ybb/SCALE_beta/Parametric2/MSDR/MSDR_beta_33/
+qsub MSDR_33.pbs
+
+cd /home/ybb/SCALE_beta/Parametric2/MSDR/MSDR_beta_65/
+qsub MSDR_65.pbs
+

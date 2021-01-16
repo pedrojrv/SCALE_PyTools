@@ -1,0 +1,7 @@
+Zero_Simualtion: 2
+First_Simualtion: 2 4 8 16 
+Second_Simulation 2 2 2 2
+Third_Simualtion: 40 * 0.1 (4 days)
+Fourth_Simualtion: 100 * 0.1 (10 days)
+Fifth_Simulation: 300 * 0.1
+Sixth_Simulation: No Initial Step

@@ -1,0 +1,126 @@
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_102/
+qsub MSBR_102.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_104/
+qsub MSBR_104.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_106/
+qsub MSBR_106.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_108/
+qsub MSBR_108.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_110/
+qsub MSBR_110.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_112/
+qsub MSBR_112.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_114/
+qsub MSBR_114.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_116/
+qsub MSBR_116.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_132/
+qsub MSBR_132.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_164/
+qsub MSBR_164.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_228/
+qsub MSBR_228.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_356/
+qsub MSBR_356.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_612/
+qsub MSBR_612.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSBR/MSBR_beta_1124/
+qsub MSBR_1124.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_102/
+qsub MSRE_102.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_104/
+qsub MSRE_104.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_106/
+qsub MSRE_106.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_108/
+qsub MSRE_108.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_110/
+qsub MSRE_110.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_112/
+qsub MSRE_112.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_114/
+qsub MSRE_114.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_116/
+qsub MSRE_116.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_132/
+qsub MSRE_132.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_164/
+qsub MSRE_164.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_228/
+qsub MSRE_228.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_356/
+qsub MSRE_356.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_612/
+qsub MSRE_612.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSRE/MSRE_beta_1124/
+qsub MSRE_1124.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_102/
+qsub MSDR_102.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_104/
+qsub MSDR_104.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_106/
+qsub MSDR_106.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_108/
+qsub MSDR_108.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_110/
+qsub MSDR_110.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_112/
+qsub MSDR_112.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_114/
+qsub MSDR_114.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_116/
+qsub MSDR_116.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_132/
+qsub MSDR_132.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_164/
+qsub MSDR_164.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_228/
+qsub MSDR_228.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_356/
+qsub MSDR_356.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_612/
+qsub MSDR_612.pbs
+
+cd /home/ybb/SCALE_beta/No_Timetable/MSDR/MSDR_beta_1124/
+qsub MSDR_1124.pbs
+

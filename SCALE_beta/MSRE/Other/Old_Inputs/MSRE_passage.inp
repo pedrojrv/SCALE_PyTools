@@ -1,0 +1,74 @@
+=t-depl parm=(addnux=4)
+MSDR assembly
+v7-252
+
+read comp
+' materials at 625 degrees C
+' fuel salt LiF with 5% LEU
+  li-6  1  1.13888E-05  898.15 end
+  li-7  1  2.27766E-01  898.15 end
+  u-235 1  1.46481E-01  898.15 end
+  u-238 1  2.78314E+00  898.15 end
+  f-19  1  1.55260E+00  898.15 end
+' moderator
+  graphite  3 DEN=1.77666 1.0 898.15 end
+end comp
+
+read celldata
+  latticecell symmslabcell pitch=5.08 3 fueld=0.36068 1 end
+end celldata
+
+read depletion
+    1 
+end depletion
+
+' 750 MWt for 138.54136 MT salt, 62.1 MT HM
+read burndata
+    power=6.196823919 burn=300  nlib=10 end
+    power=6.196823919 burn=5610 nlib=17 end
+    power=6.196823919 burn=5610 nlib=17 end
+    power=6.196823919 burn=5610 nlib=17 end
+    power=6.196823919 burn=5610 nlib=17 end
+end burndata
+
+READ opus
+matl=1 end
+title = 'Masses in fuel salt'
+units=gper 
+nrank=2000 
+libtyp=all
+time=days 
+typarms=nucl 
+sort=no
+END opus
+
+read model
+252 group solution
+
+read parm
+  drawit=yes
+  prtmxtab=yes
+  echo=yes
+  prtflux=yes
+end parm
+
+read materials
+  mix=1  pn=1 com="fuel salt" end
+  mix=3  pn=2 com="graphite"  end
+end materials
+
+read geom
+  global unit 1
+    cuboid   1 4.064 1.016 1.778 0.762
+    cuboid  90 5.08 0. 2.54 0.
+    media 1 1  1
+    media 3 1 -1  90
+  boundary 90 30 30
+end geom
+
+read bounds
+  all=refl
+end bounds
+
+end model
+end

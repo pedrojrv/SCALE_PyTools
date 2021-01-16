@@ -1,0 +1,123 @@
+=t-depl parm=(addnux=4)
+MSDR Quarter Pin assembly
+v7-252
+
+read comp
+' fuel salt LiF with 5% LEU
+  li-6  1  1.13888E-05  898.15 end
+  li-7  1  2.27766E-01  898.15 end
+  u-235 1  1.46481E-01  898.15 end
+  u-238 1  2.78314E+00  898.15 end
+  f-19  1  1.55260E+00  898.15 end
+
+' moderator
+  graphite  3 DEN=1.77666 1.0 898.15 end
+
+' waste mixture(s)
+  xe-135    7 0 1.0e-20 898.15 end
+' waste mixture(s)
+  xe-135    8 0 1.0e-20 898.15 end
+end comp
+
+read celldata
+  latticecell symmslabcell pitch=4.8387 3 fueld=0.36068 1 end
+end celldata
+
+read depletion
+    1 decayonly 7 8
+end depletion
+
+' 750 MWt for 138.54136 MT salt, 62.1 MT HM
+read burndata
+power=30.81326566 burn=4  nlib=1 down=0 end 
+power=30.81326566 burn=100  nlib=1 down=0 end 
+power=30.81326566 burn=100  nlib=1 down=0 end 
+power=30.81326566 burn=100  nlib=1 down=0 end 
+power=30.81326566 burn=100  nlib=1 down=0 end 
+power=30.81326566 burn=100  nlib=1 down=0 end 
+power=30.81326566 burn=100  nlib=1 down=0 end 
+power=30.81326566 burn=100  nlib=1 down=0 end 
+power=30.81326566 burn=100  nlib=1 down=0 end 
+end burndata
+
+READ opus
+matl=1 7 8 end
+title = 'Masses in fuel salt'
+units=gram 
+nrank=2000 
+libtyp=all
+time=days 
+typarms=nucl 
+sort=no
+END opus
+
+read timetable
+' gaseous fission product removal
+   flow
+      from 1
+      to 7
+      type continuous
+      units pers
+      nuclides Kr Xe Ar H N O end
+      constant 0.00041849397 0.00041849397 0.00041849397 0.00041849397 0.00041849397 0.00041849397 end
+      time 0.0 end
+      factor 1.0 end
+   end flow
+' solid fission product removal (no decay)
+   flow
+      from 1
+      to 8
+      type continuous
+      units pers
+      nuclides Se Nb Mo Tc Ru Rh Pd Ag Sb Te end
+      constant 3.93602E-05 3.93602E-05 3.93602E-05 3.93602E-05 3.93602E-05 3.93602E-05 3.93602E-05 3.93602E-05 3.93602E-05 3.93602E-05 end
+      time 0.0 end
+      factor 1.0 end
+   end flow
+end timetable
+
+read model
+252 group solution
+
+read parm
+ drawit=yes
+ echo=yes
+' cmfd=yes
+ timed=yes
+' nazim=3
+' npolar=3
+ prtflux=yes
+ prtmxtab=yes
+ prtbalnc=yes
+end parm
+
+read materials
+  mix=1  pn=1 com="Fuel Salt" end
+  mix=3  pn=2 com="Graphite"  end
+end materials
+
+read geom
+  global unit 1
+    polygon  10 0 0 0 11.91641 1.73101 11.91641 2.23901 11.4081275 2.23901 0 0 0 
+    polygon  20 2.59969 0 2.59969 11.4081275 3.10769 11.91641 6.56971 11.91641 7.07771 11.4081275 7.07771 0 2.59969 0 
+    polygon  30 7.43839 0 7.43839 11.4081275 7.94639 11.91641 11.21774607 11.91641 11.91641 11.21774607 11.91641 0 7.43839 0
+    polygon  40 0 0 0 12.27709 11.43381 12.27709 12.27709 11.43381 12.27709 0 0 0
+    cuboid   90 14.5161 0. 14.5161 0.
+    media 1 1 -10 -20 -30 40
+    media 3 1  10
+    media 3 1  20
+    media 3 1  30
+    media 3 1 -40 90
+  boundary 90 30 30
+end geom
+
+read bounds
+  all=refl
+end bounds
+
+end model
+end
+
+=shell
+  cp ${TMPDIR}/StdCmpMix00001 ${OUTDIR}/${BASENAME}.stdcmp_m1
+end

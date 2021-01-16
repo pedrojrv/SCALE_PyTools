@@ -1,0 +1,74 @@
+=t-newt parm=(centrm)
+MSDR assembly
+v7-252
+
+read comp
+' LEU 35% U-235
+'li-6  1  DEN=2.14647 1.50001E-05  922.0389 end
+'li-7  1  DEN=2.14647 0.174983173  922.0389 end
+'f-19  1  DEN=2.14647 0.768703945  922.0389 end
+'be    1  DEN=2.14647 0.045266667  922.0389 end
+'zr    1  DEN=2.14647 0.004216867  922.0389 end
+'u-235 1  DEN=2.14647 0.002365394  922.0389 end
+'u-238 1  DEN=2.14647 0.004448954  922.0389 end
+
+'Th-U-233 Cycle
+f-19    1    1.489985        973.15        end
+u-233   1    0.02396926      973.15        end
+th-232  1    1.431974        973.15        end
+li-7    1    0.258704        973.15        end
+be-9    1    0.074156        973.15        end
+
+' HEU 93% U-235
+'li-6  1  DEN=2.0824 1.50001E-05  922.0389 end
+'li-7  1  DEN=2.0824 0.174983173  922.0389 end
+'f-19  1  DEN=2.0824 0.768716166  922.0389 end
+'be    1  DEN=2.0824 0.045266667  922.0389 end
+'zr    1  DEN=2.0824 0.004216867  922.0389 end
+'u-235 1  DEN=2.0824 0.006320330  922.0389 end
+'u-238 1  DEN=2.0824 0.000481797  922.0389 end
+
+' moderator
+graphite  3 DEN=1.86 1.0 922.0389 end
+
+end comp
+
+read celldata
+  latticecell SQUAREPITCH pitch=9.906 3 fuelr=1.7018 1 end
+end celldata
+
+read model
+read parameter
+ drawit=yes
+ echo=yes
+' nazim=3
+' npolar=3
+ prtflux=yes
+ prtmxtab=yes
+end parm
+
+read materials
+  mix=1  pn=1 com="fuel salt" end
+  mix=3  pn=1 com="graphite"  end
+end materials
+
+read geom
+unit 10
+cylinder 20 1.7018
+media 1 1 20
+boundary 20
+
+
+global unit 1
+cuboid  90 9.906 0 9.906 0
+hole 10 origin x=4.953 y=4.953
+media 3 1 90
+boundary 90 30 30
+end geom
+
+read bounds
+  all=refl
+end bounds
+
+end model
+end

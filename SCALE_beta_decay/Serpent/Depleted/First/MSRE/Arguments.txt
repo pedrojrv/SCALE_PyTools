@@ -1,0 +1,31 @@
+MSRE Poisoning of about 1.4% without circulating bubbles and well below 1% with circulating bubbles. (Pg. 1)
+Check reference 5-7 MSRE ORNL 4069
+
+They calculated concentration in salt by equating sources and sink terms.
+Parameters Used in Calculation that might be different from our calculations:
+- Xe from Fission at 0.3% yield in U-235
+- Xe from Iodine Decay with yield of 6.1%
+- Total Yield of 6.4%
+- Xenon Stripper Efficiency: 8 to 15%, they used 12% or 10% but it could as well be in the 100% efficiency (NOTE WORDING)
+- Average neutron absorption cross section 1.18E6 barns averaged over the MSRE spectrum (11)
+- They divide the core into three different fluid dynamic regions
+- They also assume concentration constant throughout loop. 43)
+- Reactor Temperature 1200 F (922K)
+- Generation Rate 5.44E19 atoms per hour (44)
+- Assuming Stripping Efficiency is Removal Efficiency, no feedback loop.
+- Bubble-free case, Xe-135 poisoning should be 1.3 to 1.5% (NOTE WORDING)
+- For simulation with no bubbles:
+   - Decay in Salt is 3.4%
+   - Burnup in Salt is 0.9%
+   - Stripped from Salt is 31%
+   - Migration to Graphite 64.7%
+   - 96.4% of total poisoning is due to Xe in graphite and only 3.6% due to that in salt (Makes sense)
+- With bubbles, 98% of Xenon in bubbles
+- Lack of understanding in bubble void fraction and diameter so they assume 0.010 in diameter
+- Not known for sure but Xe poisoning in the order 0.3 to 0.4%
+
+Known Discrepancies:
+- Generation Rate
+- Fission Yields
+- Not accounting for Holdup in Graphite per se
+- Stripper Efficiency (they used 10 or 12 and we used 15%

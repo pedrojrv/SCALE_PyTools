@@ -1,0 +1,63 @@
+for i in range(0, len(runs)):
+    with open("./MSDR_beta.txt", "r") as myfile: #JUST TO TAKE THE FIRST 23 LINES
+        head = list(islice(myfile, 44))
+
+    with open("./MSDR_beta.txt", "r") as myfile2:
+        head2 = list(islice(myfile2, 44, None))
+        
+    with open("MSDR_beta_{}.inp".format(len(runs[i])), "w+", newline='\n') as f2:
+        for item in head:
+              f2.write(item)
+            
+        # SPECIFY PATH THAT THE PBS FILE WILL BE IN!
+        for z in range(0, len(runs[i])):
+              f2.write("power=30.81326566 burn={}  nlib=1 down=0 end \n".format(runs[i][z]))
+        
+        for item in head2:
+              f2.write(item)
+              
+        f2.close()
+    myfile.close()
+    myfile2.close()
+    
+    with open("./MSDR_beta_{}.inp".format(len(runs[i])), "r", newline='\n') as file:
+              filedata = file.read()
+    
+    # Replace the target string
+    filedata = filedata.replace('substitute', str(MSDR_r[-1]))
+    file.close()
+    
+    # Write the file out again
+    with open("./MSDR_beta_{}.inp".format(len(runs[i])), "w", newline='\n') as file:
+        file.write(filedata)
+    file.close()
+
+
+# MSDR
+# always remember, use files in a with statement
+for i in range(0, len(runs)):
+    with open("scale_beta_unix.pbs", "r") as myfile:
+        head = list(islice(myfile, 23))
+        
+    
+    with open("./MSDR_beta_{0}/MSDR_{0}.pbs".format(len(runs[i])), "w", newline='\n') as f2:
+        for item in head:
+            f2.write(item)
+        f2.write("cd /home/ybb/SCALE_beta/Parametric/MSDR/MSDR_beta_{}/\n".format(len(runs[i])))
+        f2.write("/scale/release/6.3b4/linux/bin/scalerte MSDR_beta_{0}.inp\n".format(len(runs[i])))
+        f2.write("\n")
+        
+        f2.close()
+    myfile.close()
+        
+for i in range(0, len(runs)):
+    with open('./MSDR_beta_{0}/MSDR_{0}.pbs'.format(len(runs[i])), 'r') as file :
+        filedata = file.read()
+        # Replace the target string
+        filedata = filedata.replace('substitute1', "MSDR_cases")
+
+        # Write the file out again
+        with open('./MSDR_beta_{0}/MSDR_{0}.pbs'.format(len(runs[i])), 'w', newline='\n') as file:
+            file.write(filedata)
+            file.close()
+        file.close()

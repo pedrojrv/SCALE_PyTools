@@ -1,0 +1,78 @@
+=t-newt parm=(centrm)
+MSDR assembly
+v7-252
+
+read comp
+' LEU 35% U-235
+li-6  1  DEN=2.14647 1.50001E-05  922.0389 end
+li-7  1  DEN=2.14647 0.174983173  922.0389 end
+u-235 1  DEN=2.14647 0.002365394  922.0389 end
+u-238 1  DEN=2.14647 0.004448954  922.0389 end
+f-19  1  DEN=2.14647 0.768703945  922.0389 end
+be    1  DEN=2.14647 0.045266667  922.0389 end
+zr    1  DEN=2.14647 0.004216867  922.0389 end
+
+' HEU 93% U-235
+'li-6  1  DEN=2.0824 1.50001E-05  922.0389 end
+'li-7  1  DEN=2.0824 0.174983173  922.0389 end
+'f-19  1  DEN=2.0824 0.768716166  922.0389 end
+'be    1  DEN=2.0824 0.045266667  922.0389 end
+'zr    1  DEN=2.0824 0.004216867  922.0389 end
+'u-235 1  DEN=2.0824 0.006320330  922.0389 end
+'u-238 1  DEN=2.0824 0.000481797  922.0389 end
+
+' moderator
+graphite  3 DEN=1.86 1.0 922.0389 end
+
+end comp
+
+'read celldata
+'  latticecell symmslabcell pitch=5.08 3 fueld=0.36068 1 end
+'end celldata
+
+read model
+read parameter
+ drawit=yes
+ echo=yes
+' nazim=3
+' npolar=3
+ prtflux=yes
+ prtmxtab=yes
+end parm
+read materials
+  mix=1  pn=1 com="fuel salt" end
+  mix=3  pn=2 com="graphite"  end
+end materialsßß
+
+read geom
+unit 10
+cylinder 20 0.508
+media 1 1 20
+boundary 20
+
+  global unit 1
+    cuboid   1 0.508 0  3.556 1.524
+    cuboid   2 3.556 1.524 0.508 0
+    cuboid   3 5.08  4.572 3.556 1.524
+    cuboid   4 3.556 1.524 5.08 4.572
+    cuboid  90 5.08 0. 5.08 0.
+    hole 10 origin x=0 y=1.524
+    hole 10 origin x=0 y=3.556
+    hole 10 origin x=1.524 y=0
+    hole 10 origin x=3.556 y=0
+    hole 10 origin x=5.08 y=1.524
+    hole 10 origin x=5.08 y=3.556
+    hole 10 origin x=1.524 y=5.08
+    hole 10 origin x=3.556 y=5.08
+    media 1 1  1
+    media 1 1 2
+    media 1 1 3
+    media 1 1 4
+    media 3 1 -1 -2 -3 -4 90
+  boundary 90 30 30
+end geom
+read bounds 
+  all=reflected
+end bounds
+end model
+end                                                                                                                     

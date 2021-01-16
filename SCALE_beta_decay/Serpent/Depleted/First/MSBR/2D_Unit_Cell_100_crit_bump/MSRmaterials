@@ -1,0 +1,25 @@
+/************************
+ * Material definitions *
+ ************************/
+
+% --- Graphite consisting solely of carbon-12
+%     Flagged as bound scatterer with the "moder"-card
+%     Thermal scattering libraries for graphite at 1000 Kelvin
+%     Temperature: 1000 K
+%     Density: 1.719 g/cm3
+
+mat graphite -1.86 moder graphiteLib 6012 rgb 100 100 100 tmp 973.15 %vol 333897700
+ 6012.03c    1.00
+
+therm graphiteLib grj3.20t
+
+
+%--- Fuel Salt Composition 5% EFF at Day 3300 from SCALE
+mat fuel_salt sum tmp 978 rgb 255 255 150
+Li-6.09c 2.89788258917841e-07
+Li-7.09c 0.0220467074631897
+Be-9.09c 0.00492478523752691
+F-19.09c 0.047134729994813
+Th-232.09c 0.0036120052238432
+U-233.09c  8.41e-05
+Xe-135.09c 1.08805173692001e-11
